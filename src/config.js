@@ -1,0 +1,238 @@
+const Config = {
+	INTERVAL:{
+        YEARLY:"yearly", 
+        MONTHLY:"monthly", 
+        WEEKLY:"weekly", 
+        DAILY:"daily", 
+        HOURLY:"hourly", 
+        FIVE_MINUTES:"5m", 
+        TEN_MINUTES:"10m", 
+        FIFTEEN_MINUTES:"15m", 
+        THIRTY_MINUTES:"30m", 
+        FOURTY_FIVE_MINUTES:"45m", 
+        ONE_HOURS:"1h", 
+        TWO_HOURS:"2h", 
+        THREE_HOURS:"3h", 
+        SIX_HOURS:"6h", 
+        TWELVE_HOURS:"12h", 
+        TWENTY_FOUR_HOURS:"24h", 
+        ONE_DAYS:"1d", 
+        TWO_DAYS:"2d", 
+        THREE_DAYS:"3d", 
+        SEVEN_DAYS:"7d", 
+        FOURTEEN_DAYS:"14d", 
+        FIFTEEN_DAYS:"15d", 
+        THIRTY_DAYS:"30d", 
+        SIXTY_DAYS:"60d", 
+        NINETY_DAYS:"90d", 
+        THREE_HUNDRED_SIXTY_FIVE_DAYS:"365d"
+    },
+    TIME_PERIOD:{
+        DAILY:"daily", 
+        HOURLY:"hourly", 
+    },
+    CUR_SORT:{
+		NAME: "name", 
+		SYMBOL: "symbol", 
+		DATE_ADDED: "date_added", 
+		MARKET_CAP: "market_cap", 
+		PRICE: "price", 
+		CIRCULATING_SUPPLY: "circulating_supply", 
+		TOTAL_SUPPLY: "total_supply", 
+		MAX_SUPPLY: "max_supply", 
+		NUMBER_MARKET_PAIRS: "num_market_pairs", 
+		VOL_24_HOUR: "volume_24h", 
+		PECENT_CHANGE_1H: "percent_change_1h", 
+		PERCENT_CHANGE_24H: "percent_change_24h", 
+		PERENT_CHANGE_7D: "percent_change_7d"
+    },
+    BASE_URL:{
+		PROD:'https://pro-api.coinmarketcap.com/v1/',
+		SANDBOX:'https://sandbox-api.coinmarketcap.com/v1/',
+	},
+    LISTING_STATUS:{
+    	ACTIVE:'active',
+    	INACTIVE:'inactive'
+    },    
+    SORT_DIR:{
+    	ASCENDING: "asc",
+    	DECENDING: "desc"
+    },    
+    CURRENCY_TYPES:{
+    	ALL: "all",
+    	COINS: "coins",
+    	TOKENS: "tokens",
+    },
+	MARKET_TYPES:{
+		ALL:'all',
+		FEES:'fees',
+		NO_FEES:'no_fees',
+	},
+	ENDPOINT_PARAMETERS:{
+		'cryptocurrency/map': {
+			listing_status: 'listing_status',
+			start: 'greater_than_zero',
+			limit: 'limit',
+			symbol: 'symbol',
+		},
+		'cryptocurrency/info': {
+			id: 'id',
+			slug: 'slug',
+			symbol: 'symbol',
+		}, 
+		'cryptocurrency/listings/latest':{
+			start: 'greater_than_zero',
+			limit: 'limit',
+			convert_id: 'id',
+			convert: 'symbol',
+			sort: 'cur_sort',
+			sort_dir: 'sort_dir',
+			cryptocurrency_type: 'cur_type',
+		},
+		'cryptocurrency/listings/historical':{
+			date: 'date',
+			start: 'greater_than_zero',
+			limit: 'limit',
+			convert_id: 'id',
+			convert: 'symbol',
+			sort: 'cur_sort',
+			sort_dir: 'sort_dir',
+			cryptocurrency_type: 'cur_type'
+		},
+		'cryptocurrency/quotes/latest':{
+			id: 'id', 
+			slug: 'slug',
+			symbol: 'symbol',
+			convert_id: 'id',
+			convert: 'symbol',
+		},
+		'cryptocurrency/quotes/historical':{
+			id: 'id', 
+			symbol: 'symbol',
+			time_start: 'date',
+			time_end: 'date',
+			count: 'count',
+			interval: 'interval',
+			convert_id: 'id', 
+			convert: 'symbol',
+		},
+		'cryptocurrency/market-pairs/latest':{
+			id: 'id',
+			symbol: 'symbol',
+			start: 'greater_than_zero',
+			limit: 'limit',
+			convert_id: 'id', 
+			convert: 'symbol', 
+		},
+		'cryptocurrency/ohlcv/latest':{
+			id: 'id',
+			symbol: 'symbol',
+			convert_id: 'id', 
+			convert: 'symbol',
+		},
+		'cryptocurrency/ohlcv/historical':{
+			id: 'id', 
+			symbol: 'symbol',
+			time_start: 'date',
+			time_end: 'date',
+			count: 'count',
+			interval: 'interval',
+			convert_id: 'id', 
+			convert: 'symbol',
+		},
+		'exchange/map': {
+			listing_status: 'listing_status',
+			start: 'greater_than_zero',
+			limit: 'limit',
+			slug: 'slug',
+		},
+		'exchange/info': {
+			id: 'id',
+			slug: 'symbol',
+		}, 
+		'exchange/listings/latest':{
+			start: 'greater_than_zero',
+			limit: 'limit',
+			convert_id: 'id',
+			convert: 'symbol',
+			sort: 'sort',
+			sort_dir: 'sort_dir',
+			market_type: 'market_type',
+		},
+		'exchange/quotes/latest':{
+			id: 'id', 
+			slug: 'slug', 
+			convert_id: 'id', 
+			convert: 'symbol', 
+		},
+		'exchange/quotes/historical':{
+			id: 'id', 
+			slug: 'slug', 
+			time_start: 'date',
+			time_end: 'date',
+			count: 'count',
+			interval: 'interval',
+			convert_id: 'id', 
+			convert: 'symbol',
+		},
+		'exchange/market-pairs/latest':{
+			id: 'id', 
+			slug: 'slug', 
+			start: 'greater_than_zero',
+			limit: 'limit',
+			convert_id: 'id', 
+			convert: 'symbol',
+		},
+		'global-metrics/quotes/latest':{
+			convert_id: 'id',
+			convert: 'id',
+		},
+		'global-metrics/quotes/historical':{
+			time_start: 'date',
+			time_end: 'date',
+			count: 'count',
+			interval: 'interval',
+			convert_id: 'id', 
+			convert: 'symbol',
+		},
+		'tools/price-conversion': {
+			amount: 'amount',
+			id: 'id',
+			symbol: 'symbol',
+			time: 'date',
+			convert_id: 'id',
+			convert: 'symbol',
+		},
+	},
+	REQUIRED_PARAMETERS:{
+		'cryptocurrency/listings/historical': {
+			requireAll: ['date'],
+		},
+		'cryptocurrency/quotes/latest': {
+			requireOne: ['id', 'symbol', 'slug'],
+		},
+		'cryptocurrency/quotes/historical': {
+			requireOne: ['id', 'symbol', 'slug'],
+		},
+		'cryptocurrency/ohlcv/latest': {
+			requireOne: ['id', 'symbol', 'slug'],
+		},
+		'cryptocurrency/ohlcv/historical': {
+			requireOne: ['id', 'symbol', 'slug'],
+		},
+		'exchange/quotes/latest':{
+			requireOne:['id', 'slug'],
+		},
+		'exchange/quotes/historical':{
+			requireOne:['id', 'slug'],
+		},
+		'exchange/market-pairs/latest':{
+			requireOne:['id', 'slug'],
+		},
+		'exchange/market-pairs/historical':{
+			requireOne:['id', 'slug'],
+		},
+	},
+};
+
+module.exports = Config;

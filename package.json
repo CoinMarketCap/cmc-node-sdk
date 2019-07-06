@@ -1,0 +1,26 @@
+{
+  "name": "coinmarketcap",
+  "version": "1.0.0",
+  "main": "dist/coinmarketcap-api.cjs.js",
+  "module": "dist/coinmarketcap-api.esm.js",
+  "browser": "dist/coinmarketcap-api.umd.js",
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.16.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-replace": "^2.2.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist"
+  ]
+}
